@@ -3,7 +3,7 @@ import { Button } from "@mui/material";
 import React from "react";
 
 const CustomButton = styled(Button)({
-  background: "#F4E041",
+  background: "linear-gradient(90deg, rgba(57,254,255,1) 0%, rgba(255,0,241,1) 100%)",
   border: "none",
   borderRadius: "80px",
   color: "rgba(0, 0, 0, 0.87)",
@@ -12,7 +12,7 @@ const CustomButton = styled(Button)({
   marginLeft: "10px",
   fontSize: "16px",
   "&:hover": {
-    background: "#FFE302",
+    background: "linear-gradient(90deg, rgba(44,187,187,1) 0%, rgba(194,1,183,1) 100%)",
   },
   "&.Mui-disabled": {
     background: "#B4B4B4",
@@ -21,6 +21,6 @@ const CustomButton = styled(Button)({
 });
 
 export const StyledButton = (props) => {
-    const {title} = props
-  return <CustomButton>{title}</CustomButton>;
+    const {title, sx, type} = props
+  return <CustomButton type={type} sx={sx}>{title}</CustomButton>;
 };
