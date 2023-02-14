@@ -6,6 +6,7 @@ import {
   CardActions,
   Button,
   Grid,
+  useMediaQuery,
 } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
@@ -13,17 +14,22 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 
 export const PostCard = (props) => {
   const { title, image, summary, publishTime } = props.post;
+  const isWidthLessSm = useMediaQuery("(min-width:600px)");
 
   return (
-    <Grid item>
-      <Card sx={{ display: "flex" }}>
+    <Grid item lg={6} md={8} sm={12} xs={12} >
+      <Card sx={isWidthLessSm ? { display: "flex", boxShadow:6 } : {}}>
         <CardMedia
-          sx={{ height: 250, width: 250 }}
+          sx={
+            isWidthLessSm
+              ? { height: 250, minWidth: 200, maxWidth: 200 }
+              : { height: 250 }
+          }
           component="img"
           alt={title}
           image={image}
         />
-        <Box sx={{ height: 200, width: 300 }}>
+        <Box sx={isWidthLessSm? { height: 200 } : {height:250}}>
           <CardContent>
             <Typography variant="h4" component="h2">
               {title}
@@ -43,7 +49,6 @@ export const PostCard = (props) => {
               </Typography>
             </Box>
             <Typography
-              
               variant="body2"
               color="text.secondary"
               sx={{
@@ -52,7 +57,7 @@ export const PostCard = (props) => {
                 WebkitBoxOrient: "vertical",
                 overflow: "hidden",
                 textOverflow: "ellipsis",
-                height: "100px"
+                height: "100px",
               }}
             >
               {summary}
