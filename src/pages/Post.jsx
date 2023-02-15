@@ -23,7 +23,7 @@ const userPost = {
 export const Post = () => {
   const { title, image, publishTime, summary, userName, userAvatar } = userPost;
   return (
-    <Card sx={{ my: "20px", boxShadow: 6 }}>
+    <Card sx={{ boxShadow: 6 }}>
       <CardContent align="center">
         <Avatar src={userAvatar} sx={{ width: "100px", height: "100px" }} />
         <Typography variant="h5">{userName}</Typography>

@@ -37,7 +37,7 @@ const mostPopularPosts = [
 export const Home = () => {
   return (
     <>
-    <Typography align="center" variant="h2" sx={{mt:"30px"}}>The most popular posts</Typography>
+    <Typography align="center" variant="h3" sx={{mt:"30px"}}>The most popular posts</Typography>
       <Grid container justifyContent="center" spacing={4} sx={{mt:"1px", mb: "20px" }}>
         {mostPopularPosts.map((post) => (
           <PostCard key={post.id} post={post} />
